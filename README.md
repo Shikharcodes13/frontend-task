@@ -1,46 +1,100 @@
-# Getting Started with Create React App
+Frontend Task - Landing Page
+Project Screenshot
+(Replace the above URL with an actual screenshot of your project)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Demo
+Check out the live demo of the project hosted on Vercel:
+👉 https://frontend-task-plum.vercel.app/
 
-## Available Scripts
+Overview
+This project is a responsive landing page built with React.js and Tailwind CSS. It showcases a modern and interactive user interface with features like a hero section, service cards, a pricing table, a contact form, and a user list fetched from an API. The project also includes performance optimizations like lazy loading and debounced search functionality.
 
-In the project directory, you can run:
+Features
+Hero Section: A visually appealing hero section with a background image and a fade-in animation.
 
-### `npm start`
+Service Cards: Displays services with hover effects and smooth transitions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Pricing Table: A responsive pricing table with gradient backgrounds and hover animations.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Contact Form: A user-friendly contact form with validation and submission handling.
 
-### `npm test`
+User List: Fetches and displays user data from an API with lazy loading for images.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Debounced Search: Implements a debounced search bar to filter user names dynamically.
 
-### `npm run build`
+Responsive Design: Fully responsive layout for all screen sizes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Technologies Used
+React.js: A JavaScript library for building user interfaces.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tailwind CSS: A utility-first CSS framework for rapid UI development.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Axios: For making HTTP requests to fetch user data.
 
-### `npm run eject`
+React LazyLoad: For lazy loading images to improve performance.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TypeScript: For type-safe JavaScript development.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Vercel: For hosting and deployment.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Setup Instructions
+Follow these steps to set up the project locally:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the Repository
+bash
+Copy
+git clone https://github.com/your-username/frontend-task.git
+cd frontend-task
+2. Install Dependencies
+bash
+Copy
+npm install
+3. Run the Development Server
+bash
+Copy
+npm start
+The project will be running at http://localhost:3000.
 
-## Learn More
+4. Build for Production
+bash
+Copy
+npm run build
+File Structure
+Copy
+frontend-task/
+├── node_modules/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── manifest.json
+├── src/
+│   ├── assets/
+│   │   └── hero-bg.jpg
+│   ├── components/
+│   │   ├── HeroSection.tsx
+│   │   ├── ServiceCards.tsx
+│   │   ├── PricingTable.tsx
+│   │   ├── ContactForm.tsx
+│   │   └── UserList.tsx
+│   ├── pages/
+│   │   └── LandingPage.tsx
+│   ├── styles/
+│   │   └── tailwind.css
+│   ├── types/
+│   │   └── react-lazyload.d.ts
+│   ├── utils/
+│   │   └── debounce.ts
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── index.css
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+└── README.md
+Performance Optimizations
+Lazy Loading: Images are lazy-loaded using react-lazyload to improve page load times.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Debounced Search: A debounced search bar ensures efficient filtering of user data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Tailwind CSS: Utility-first CSS ensures minimal and optimized styles.
+
