@@ -8,14 +8,17 @@ const pricingPlans = [
 
 const PricingTable: React.FC = () => {
   return (
-    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
       {pricingPlans.map((plan, index) => (
-        <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold">{plan.name}</h2>
-          <p className="mt-2 text-2xl font-bold">{plan.price}</p>
-          <ul className="mt-4">
+        <div
+          key={index}
+          className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <h2 className="text-xl font-bold mb-2">{plan.name}</h2>
+          <p className="text-2xl font-bold mb-4">{plan.price}</p>
+          <ul className="space-y-2">
             {plan.features.map((feature, i) => (
-              <li key={i} className="mt-2">{feature}</li>
+              <li key={i} className="text-gray-600">{feature}</li>
             ))}
           </ul>
         </div>

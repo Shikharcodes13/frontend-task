@@ -37,7 +37,7 @@ const UserList: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {users.map((user) => (
           <LazyLoad key={user.id} height={100} offset={100}>
-            <div className="bg-white p-4 rounded-lg shadow-lg">
+            <div className="bg-white p-4 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <h3 className="text-xl font-bold">{user.name}</h3>
               <p className="text-gray-600">{user.email}</p>
             </div>
