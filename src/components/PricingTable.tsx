@@ -1,35 +1,26 @@
 import React from 'react';
 
-interface Plan {
-  name: string;
-  price: string;
-  features: string[];
-}
-
-const plans: Plan[] = [
-  { name: 'Basic', price: '$10', features: ['1 User', 'Basic Support'] },
-  { name: 'Pro', price: '$20', features: ['5 Users', 'Priority Support'] },
-  { name: 'Enterprise', price: '$50', features: ['Unlimited Users', '24/7 Support'] },
+const pricingPlans = [
+  { name: 'Basic', price: '$10', features: ['1 Website', '1GB Storage', '24/7 Support'] },
+  { name: 'Pro', price: '$20', features: ['5 Websites', '10GB Storage', 'Priority Support'] },
+  { name: 'Premium', price: '$50', features: ['Unlimited Websites', '50GB Storage', 'VIP Support'] },
 ];
 
 const PricingTable: React.FC = () => {
   return (
-    <section className="py-8 px-4 bg-gray-200">
-      <h2 className="text-2xl font-bold text-center mb-4">Pricing Plans</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {plans.map((plan, index) => (
-          <div key={index} className="p-4 bg-white shadow rounded text-center">
-            <h3 className="font-semibold text-lg">{plan.name}</h3>
-            <p className="text-2xl font-bold my-2">{plan.price}</p>
-            <ul>
-              {plan.features.map((feature, i) => (
-                <li key={i}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      {pricingPlans.map((plan, index) => (
+        <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold">{plan.name}</h2>
+          <p className="mt-2 text-2xl font-bold">{plan.price}</p>
+          <ul className="mt-4">
+            {plan.features.map((feature, i) => (
+              <li key={i} className="mt-2">{feature}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   );
 };
 

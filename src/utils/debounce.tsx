@@ -1,9 +1,9 @@
-const debounce = <T extends (...args: any[]) => void>(func: T, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return (...args: Parameters<T>) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => func(...args), delay);
-    };
+const debounce = (func: Function, delay: number) => {
+  let timeoutId: NodeJS.Timeout;
+  return (...args: any[]) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func(...args), delay);
   };
-  
-  export default debounce;
+};
+
+export default debounce;

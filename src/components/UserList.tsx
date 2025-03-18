@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import debounce from '../utils/debounce';
+import LazyLoad from 'react-lazyload';
 
 interface User {
   id: number;
@@ -10,60 +10,41 @@ interface User {
 
 const UserList: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get<User[]>('https://jsonplaceholder.typicode.com/users');
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         setUsers(response.data);
-        setFilteredUsers(response.data);
-      } catch (error) {
-        console.error('Error fetching users:', error);
+      } catch (err) {
+        setError('Failed to fetch users');
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchUsers();
   }, []);
 
-  const filterUsers = useMemo(() => {
-    return debounce((term: string) => {
-      if (!term) {
-        setFilteredUsers(users);
-        return;
-      }
-      const filtered = users.filter((user) =>
-        user.name.toLowerCase().includes(term.toLowerCase())
-      );
-      setFilteredUsers(filtered);
-    }, 300);
-  }, [users]);
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const term = e.target.value;
-    setSearchTerm(term);
-    filterUsers(term);
-  };
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
-    <section className="py-8 px-4 bg-gray-100">
-      <h2 className="text-2xl font-bold text-center mb-4">Our Users</h2>
-      <input
-        type="text"
-        placeholder="Search users..."
-        value={searchTerm}
-        onChange={handleSearch}
-        className="w-full max-w-md mx-auto block p-2 mb-4 border rounded"
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredUsers.map((user) => (
-          <div key={user.id} className="p-4 bg-white shadow rounded">
-            <h3 className="font-semibold">{user.name}</h3>
-            <p>{user.email}</p>
-          </div>
+    <div className="p-8">
+      <h2 className="text-2xl font-bold mb-4">User List</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {users.map((user) => (
+          <LazyLoad key={user.id} height={100} offset={100}>
+            <div className="bg-white p-4 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold">{user.name}</h3>
+              <p className="text-gray-600">{user.email}</p>
+            </div>
+          </LazyLoad>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

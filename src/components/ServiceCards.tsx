@@ -1,29 +1,21 @@
 import React from 'react';
 
-interface Service {
-  title: string;
-  description: string;
-}
-
-const services: Service[] = [
-  { title: 'Web Design', description: 'Beautiful, responsive designs.' },
-  { title: 'Development', description: 'Fast and scalable solutions.' },
-  { title: 'Support', description: '24/7 customer assistance.' },
+const services = [
+  { title: 'Web Development', description: 'We build responsive websites.' },
+  { title: 'Mobile Apps', description: 'We develop cross-platform apps.' },
+  { title: 'SEO Optimization', description: 'We optimize your site for search engines.' },
 ];
 
 const ServiceCards: React.FC = () => {
   return (
-    <section className="py-8 px-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Our Services</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {services.map((service, index) => (
-          <div key={index} className="p-4 bg-white shadow rounded">
-            <h3 className="font-semibold">{service.title}</h3>
-            <p>{service.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      {services.map((service, index) => (
+        <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold">{service.title}</h2>
+          <p className="mt-2">{service.description}</p>
+        </div>
+      ))}
+    </div>
   );
 };
 

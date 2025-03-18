@@ -1,17 +1,14 @@
 declare module 'react-lazyload' {
-    import { ComponentType, ReactNode } from 'react';
-  
-    interface LazyLoadProps {
-      height?: number | string;
-      once?: boolean;
-      offset?: number | number[];
-      overflow?: boolean;
-      resize?: boolean;
-      scroll?: boolean;
-      unmountIfInvisible?: boolean;
-      children: ReactNode;
-    }
-  
-    const LazyLoad: ComponentType<LazyLoadProps>;
-    export default LazyLoad;
+  import * as React from 'react';
+
+  interface LazyLoadProps {
+    height: number | string;
+    offset?: number | number[];
+    once?: boolean;
+    placeholder?: React.ReactNode;
+    children?: React.ReactNode;
   }
+
+  const LazyLoad: React.FC<LazyLoadProps>;
+  export default LazyLoad;
+}

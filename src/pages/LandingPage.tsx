@@ -7,12 +7,12 @@ import UserList from '../components/UserList';
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="bg-gray-100">
       <HeroSection />
       <ServiceCards />
       <PricingTable />
-      <UserList />
       <ContactForm />
+      <UserList />
     </div>
   );
 };

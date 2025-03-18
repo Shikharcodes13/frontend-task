@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1, h2, h3 {
+    @apply font-bold;
+  }
+}
+
+@layer utilities {
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-gray-900/50 to-transparent;
+  }
+}
