@@ -1,10 +1,8 @@
 Frontend Task - Landing Page
-Project Screenshot
-(Replace the above URL with an actual screenshot of your project)
 
 Live Demo
 Check out the live demo of the project hosted on Vercel:
-👉 https://frontend-task-plum.vercel.app/
+ https://frontend-task-plum.vercel.app/
 
 Overview
 This project is a responsive landing page built with React.js and Tailwind CSS. It showcases a modern and interactive user interface with features like a hero section, service cards, a pricing table, a contact form, and a user list fetched from an API. The project also includes performance optimizations like lazy loading and debounced search functionality.
